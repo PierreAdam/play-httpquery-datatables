@@ -1,8 +1,8 @@
 # Play-Ebean-Datatables
 
-[![Latest release](https://img.shields.io/github/v/release/PierreAdam/play-ebean-datatables)](https://github.com/PierreAdam/play-ebean-datatables/releases/latest)
-[![Build Status](https://travis-ci.com/PierreAdam/play-ebean-datatables.svg?branch=master)](https://travis-ci.com/PierreAdam/play-ebean-datatables)
-[![GitHub license](https://img.shields.io/github/license/PierreAdam/play-ebean-datatables)](https://raw.githubusercontent.com/PierreAdam/play-ebean-datatables/master/LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/PierreAdam/play-httpquery-datatables)](https://github.com/PierreAdam/play-httpquery-datatables/releases/latest)
+[![Build Status](https://travis-ci.com/PierreAdam/play-httpquery-datatables.svg?branch=master)](https://travis-ci.com/PierreAdam/play-httpquery-datatables)
+[![GitHub license](https://img.shields.io/github/license/PierreAdam/play-httpquery-datatables)](https://raw.githubusercontent.com/PierreAdam/play-httpquery-datatables/master/LICENSE)
 
 Play-Ebean-Datatables is a library for play framework that allows you to easily integrate [Datatables](https://datatables.net/) in your Play project to use an API build
 around [Play-Ebean-HttpQuery](https://github.com/thibaultmeyer/play-ebean-httpquery).
