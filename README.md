@@ -35,7 +35,7 @@ $> mvn deploy
 In your ```build.sbt``` file, you need to add a resolver to jitpack and the dependency for the module. This translate to the following lines.
 
 ```scala
-libraryDependencies += "com.jackson42.play" % "play-httpquery-datatables" % "21.03"
+libraryDependencies += "com.jackson42.play" % "play-httpquery-datatables" % "21.03u1"
 ```
 
 ## How to use the library
@@ -204,6 +204,7 @@ Your webpage can be build using the scala template engine or anything else. The 
 
 | Library Version | Play Version | HttpQuery Version | Tested DataTables Version  |
 |-----------------|--------------|-------------------|----------------------------|
+| 21.03u1         | 2.8.x        | 20.08             | 1.10.x                     |
 | 21.03           | 2.8.x        | 20.08             | 1.10.x                     |
 
 ## Changelog
