@@ -63,7 +63,7 @@ import java.util.Map;
 public class MyController extends Controller implements DataTablesHelper {
     private final FormFactory formFactory;
 
-    private final HttpQueryDataTables<MyEntity> edt;
+    private final HttpQueryDataTables<MyEntity, HttpQueryProvider<MyEntity>> edt;
 
     @Inject
     public MyController(final FormFactory formFactory, MessagesApi messagesApi) {
@@ -207,6 +207,10 @@ Your webpage can be build using the scala template engine or anything else. The 
 | 21.03           | 2.8.x        | 20.08             | 1.10.x                     |
 
 ## Changelog
+
+#### 21.03u1
+
+- The provider is now a templated parameter allowing more freedom when creating your own provider.
 
 #### 21.03
 

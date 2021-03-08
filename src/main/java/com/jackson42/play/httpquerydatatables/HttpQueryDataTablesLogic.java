@@ -34,13 +34,14 @@ import play.i18n.MessagesApi;
 import java.util.function.Supplier;
 
 /**
- * EbeanDataTableQuery.
+ * HttpQueryDataTablesLogic.
  *
  * @param <T> the type parameter
+ * @param <P> the type parameter
  * @author Pierre Adam
  * @since 21.03.05
  */
-public class HttpQueryDataTablesLogic<T> extends SimplePlayDataTables<T, HttpQueryProvider<T>, BasicPayload> implements HttpQueryDataTables<T> {
+public class HttpQueryDataTablesLogic<T, P extends HttpQueryProvider<T>> extends SimplePlayDataTables<T, P, BasicPayload> implements HttpQueryDataTables<T, P> {
 
     /**
      * Instantiates a new A play data tables.
@@ -49,44 +50,44 @@ public class HttpQueryDataTablesLogic<T> extends SimplePlayDataTables<T, HttpQue
      * @param messagesApi              the messages api
      * @param initialHttpQuerySupplier the query supplier
      */
-    protected HttpQueryDataTablesLogic(final Class<T> tClass, final MessagesApi messagesApi, final Supplier<HttpQueryProvider<T>> initialHttpQuerySupplier) {
+    protected HttpQueryDataTablesLogic(final Class<T> tClass, final MessagesApi messagesApi, final Supplier<P> initialHttpQuerySupplier) {
         super(tClass, messagesApi, initialHttpQuerySupplier);
     }
 
     @Override
-    protected void setPagination(final HttpQueryProvider<T> provider, final int startElement, final int numberOfElement) {
+    protected void setPagination(final P provider, final int startElement, final int numberOfElement) {
         final int page = startElement / (Math.max(numberOfElement, 1));
         provider.setPagniation(page, numberOfElement);
     }
 
     @Override
-    protected void fallbackOrderHandler(final HttpQueryProvider<T> provider, final String columnName, final OrderEnum order) {
+    protected void fallbackOrderHandler(final P provider, final String columnName, final OrderEnum order) {
         provider.orderBy(columnName, order);
     }
 
     @Override
-    protected void fallbackSearchHandler(final HttpQueryProvider<T> provider, final String columnName, final String value) {
+    protected void fallbackSearchHandler(final P provider, final String columnName, final String value) {
     }
 
     @Override
-    protected DataSource<T> dataSourceFromProvider(final HttpQueryProvider<T> provider, final BasicPayload payload) {
+    protected DataSource<T> dataSourceFromProvider(final P provider, final BasicPayload payload) {
         return provider.execute();
     }
 
     @Override
-    protected void preSearchHook(final HttpQueryProvider<T> tHttpQueryProvider, final BasicPayload payload, final Parameters parameters) {
+    protected void preSearchHook(final P provider, final BasicPayload payload, final Parameters parameters) {
     }
 
     @Override
-    protected void postSearchHook(final HttpQueryProvider<T> tHttpQueryProvider, final BasicPayload payload, final Parameters parameters) {
+    protected void postSearchHook(final P provider, final BasicPayload payload, final Parameters parameters) {
     }
 
     @Override
-    protected void preOrderHook(final HttpQueryProvider<T> tHttpQueryProvider, final BasicPayload payload, final Parameters parameters) {
+    protected void preOrderHook(final P provider, final BasicPayload payload, final Parameters parameters) {
     }
 
     @Override
-    protected void postOrderHook(final HttpQueryProvider<T> tHttpQueryProvider, final BasicPayload payload, final Parameters parameters) {
+    protected void postOrderHook(final P provider, final BasicPayload payload, final Parameters parameters) {
     }
 
     @Override

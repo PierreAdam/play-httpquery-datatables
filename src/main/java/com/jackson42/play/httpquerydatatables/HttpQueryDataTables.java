@@ -31,24 +31,28 @@ import play.i18n.MessagesApi;
 import java.util.function.Supplier;
 
 /**
- * EbeanDataTablesQuery.
+ * HttpQueryDataTables.
  *
  * @param <T> the type parameter
+ * @param <P> the type parameter
  * @author Pierre Adam
  * @since 21.03.05
  */
-public interface HttpQueryDataTables<T> extends PlayDataTables<T, HttpQueryProvider<T>, BasicPayload> {
+public interface HttpQueryDataTables<T, P extends HttpQueryProvider<T>> extends PlayDataTables<T, P, BasicPayload> {
 
     /**
-     * Instantiate a new EbeanDataTables.
+     * Create http query data tables.
      *
      * @param <T>                      the type parameter
-     * @param tClass                   the tClass
+     * @param <P>                      the type parameter
+     * @param tClass                   the t class
      * @param messagesApi              the messages api
      * @param initialHttpQuerySupplier the initial http query supplier
-     * @return the ebean data tables
+     * @return the http query data tables
      */
-    static <T> HttpQueryDataTables<T> create(final Class<T> tClass, final MessagesApi messagesApi, final Supplier<HttpQueryProvider<T>> initialHttpQuerySupplier) {
-        return new HttpQueryDataTablesLogic<T>(tClass, messagesApi, initialHttpQuerySupplier);
+    static <T, P extends HttpQueryProvider<T>> HttpQueryDataTables<T, P> create(final Class<T> tClass,
+                                                                                final MessagesApi messagesApi,
+                                                                                final Supplier<P> initialHttpQuerySupplier) {
+        return new HttpQueryDataTablesLogic<>(tClass, messagesApi, initialHttpQuerySupplier);
     }
 }
