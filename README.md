@@ -2,6 +2,8 @@
 
 [![Latest release](https://img.shields.io/github/v/release/PierreAdam/play-httpquery-datatables)](https://github.com/PierreAdam/play-httpquery-datatables/releases/latest)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2f31b4b64aba49e2aa2bc2be18516fe2)](https://www.codacy.com/gh/PierreAdam/play-httpquery-datatables/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PierreAdam/play-httpquery-datatables&amp;utm_campaign=Badge_Grade)
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/PierreAdam/play-httpquery-datatables)](https://codeclimate.com/github/PierreAdam/play-httpquery-datatables)
+![JDK](https://img.shields.io/badge/JDK-1.8+-blue.svg)
 [![Build Status](https://travis-ci.com/PierreAdam/play-httpquery-datatables.svg?branch=master)](https://travis-ci.com/PierreAdam/play-httpquery-datatables)
 [![GitHub license](https://img.shields.io/github/license/PierreAdam/play-httpquery-datatables)](https://raw.githubusercontent.com/PierreAdam/play-httpquery-datatables/master/LICENSE)
 
