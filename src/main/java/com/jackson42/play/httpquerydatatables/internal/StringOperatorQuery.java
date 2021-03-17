@@ -51,6 +51,6 @@ public class StringOperatorQuery extends AQuery {
 
     @Override
     public String getValue() {
-        return this.value.toString();
+        return this.value;
     }
 }

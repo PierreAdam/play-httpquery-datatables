@@ -1,11 +1,13 @@
-# Play-Ebean-Datatables
+# Play-HttpQuery-Datatables
 
 [![Latest release](https://img.shields.io/github/v/release/PierreAdam/play-httpquery-datatables)](https://github.com/PierreAdam/play-httpquery-datatables/releases/latest)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2f31b4b64aba49e2aa2bc2be18516fe2)](https://www.codacy.com/gh/PierreAdam/play-httpquery-datatables/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PierreAdam/play-httpquery-datatables&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/PierreAdam/play-httpquery-datatables.svg?branch=master)](https://travis-ci.com/PierreAdam/play-httpquery-datatables)
 [![GitHub license](https://img.shields.io/github/license/PierreAdam/play-httpquery-datatables)](https://raw.githubusercontent.com/PierreAdam/play-httpquery-datatables/master/LICENSE)
 
-Play-Ebean-Datatables is a library for play framework that allows you to easily integrate [Datatables](https://datatables.net/) in your Play project to use an API build
+Play-HttpQuery-Datatables is a library for play framework that allows you to easily integrate [Datatables](https://datatables.net/) in your Play project to use an API build
 around [Play-Ebean-HttpQuery](https://github.com/thibaultmeyer/play-ebean-httpquery).
+
 *****
 
 ## Build the library
@@ -15,7 +17,7 @@ $> mvn compile
 $> mvn package
 ```
 
-#### Install or deploy
+### Install or deploy
 
 To install in your local repository.
 
@@ -59,17 +61,18 @@ import com.jackson42.play.httpquerydatatables.HttpQueryProvider;
 import play.i18n.MessagesApi;
 
 import java.util.Map;
+import java.util.function.Function;
 
 public class MyController extends Controller implements DataTablesHelper {
     private final FormFactory formFactory;
 
     private final HttpQueryDataTables<MyEntity, HttpQueryProvider<MyEntity>> edt;
 
-    @Inject
-    public MyController(final FormFactory formFactory, MessagesApi messagesApi) {
-        this.formFactory = formFactory;
-        this.edt = HttpQueryDataTables.create(MyEntity.class, messagesApi, () -> {
-            return new HttpQueryProvider<MyEntity>(provider -> {
+    // A good practice is to make your own provider that fit your needs.
+    public static class MyProvider extends HttpQueryProvider<MyEntity> {
+        
+        public MyProvider() {
+            super(provider -> {
                 // Here is your custom querying logic.
                 final Map<String, String> queryArgs = provider.forgeArguments();
 
@@ -94,6 +97,15 @@ public class MyController extends Controller implements DataTablesHelper {
 
                 return dataSource;
             });
+        }
+    }
+
+    @Inject
+    public MyController(final FormFactory formFactory, final MessagesApi messagesApi) {
+        this.formFactory = formFactory;
+        this.edt = HttpQueryDataTables.create(MyEntity.class, messagesApi, () -> {
+            // Create a new provider for each request. 
+            return new MyProvider();
         });
 
         // Set a custom display suppliers.
@@ -207,7 +219,7 @@ Your webpage can be build using the scala template engine or anything else. The 
 | 21.03u1         | 2.8.x        | 20.08             | 1.10.x                     |
 | 21.03           | 2.8.x        | 20.08             | 1.10.x                     |
 
-## Changelog
+### Changelog
 
 #### 21.03u1
 

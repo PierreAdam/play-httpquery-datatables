@@ -351,7 +351,7 @@ public class HttpQueryProvider<T> {
      *
      * @return the list
      */
-    DataSource<T> execute() {
+    public DataSource<T> execute() {
         return this.fetchFunction.apply(this);
     }
 

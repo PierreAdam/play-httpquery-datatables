@@ -67,6 +67,7 @@ public class HttpQueryDataTablesLogic<T, P extends HttpQueryProvider<T>> extends
 
     @Override
     protected void fallbackSearchHandler(final P provider, final String columnName, final String value) {
+        // No fallback for the search handler
     }
 
     @Override
@@ -76,18 +77,22 @@ public class HttpQueryDataTablesLogic<T, P extends HttpQueryProvider<T>> extends
 
     @Override
     protected void preSearchHook(final P provider, final BasicPayload payload, final Parameters parameters) {
+        // No pre search hook.
     }
 
     @Override
     protected void postSearchHook(final P provider, final BasicPayload payload, final Parameters parameters) {
+        // No post search hook.
     }
 
     @Override
     protected void preOrderHook(final P provider, final BasicPayload payload, final Parameters parameters) {
+        // No pre order hook.
     }
 
     @Override
     protected void postOrderHook(final P provider, final BasicPayload payload, final Parameters parameters) {
+        // No post order hook.
     }
 
     @Override
