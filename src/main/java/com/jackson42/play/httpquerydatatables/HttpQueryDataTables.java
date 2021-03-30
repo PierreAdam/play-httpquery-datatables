@@ -24,7 +24,7 @@
 
 package com.jackson42.play.httpquerydatatables;
 
-import com.jackson42.play.datatables.implementation.BasicPayload;
+import com.jackson42.play.datatables.implementations.BasicPayload;
 import com.jackson42.play.datatables.interfaces.PlayDataTables;
 import play.i18n.MessagesApi;
 

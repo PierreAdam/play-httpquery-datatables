@@ -27,8 +27,8 @@ package com.jackson42.play.httpquerydatatables;
 import com.jackson42.play.datatables.entities.Parameters;
 import com.jackson42.play.datatables.entities.internal.DataSource;
 import com.jackson42.play.datatables.enumerations.OrderEnum;
-import com.jackson42.play.datatables.implementation.BasicPayload;
-import com.jackson42.play.datatables.implementation.SimplePlayDataTables;
+import com.jackson42.play.datatables.implementations.BasicPayload;
+import com.jackson42.play.datatables.implementations.SimplePlayDataTables;
 import play.i18n.MessagesApi;
 
 import java.util.function.Supplier;

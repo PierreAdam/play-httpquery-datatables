@@ -32,15 +32,15 @@ To deploy to a remote repository.
 
 ```shell
 $> mvn verify
-$> mvn deploy
+$> mvn deploy -P release
 ```
 
 ## How to import the library
 
 In your ```build.sbt``` file, you need to add a resolver to jitpack and the dependency for the module. This translate to the following lines.
 
-```scala
-libraryDependencies += "com.jackson42.play" % "play-httpquery-datatables" % "21.03u1"
+```sbt
+libraryDependencies += "com.jackson42.play" % "play-httpquery-datatables" % "21.04"
 ```
 
 ## How to use the library
@@ -217,12 +217,18 @@ Your webpage can be build using the scala template engine or anything else. The 
 
 ## Versions
 
-| Library Version | Play Version | HttpQuery Version | Tested DataTables Version  |
-|-----------------|--------------|-------------------|----------------------------|
-| 21.03u1         | 2.8.x        | 20.08             | 1.10.x                     |
-| 21.03           | 2.8.x        | 20.08             | 1.10.x                     |
+| Library Version | Play DataTable Core | Play Version | HttpQuery Version | Tested DataTables Version  |
+|-----------------|---------------------|--------------|-------------------|----------------------------|
+| 21.04           | 21.04               | 2.8.x        | 20.08             | 1.10.x                     |
+| 21.03u1         | 21.03               | 2.8.x        | 20.08             | 1.10.x                     |
+| 21.03           | 21.03               | 2.8.x        | 20.08             | 1.10.x                     |
 
 ### Changelog
+
+#### 21.04
+
+- Update Play DataTable Core library to 21.04.
+- Compilation is now made to be done with Java 11 but compiled for Java 1.8.
 
 #### 21.03u1
 

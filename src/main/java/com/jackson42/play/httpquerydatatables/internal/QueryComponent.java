@@ -32,7 +32,17 @@ package com.jackson42.play.httpquerydatatables.internal;
  */
 public interface QueryComponent {
 
+    /**
+     * Gets key.
+     *
+     * @return the key
+     */
     String getKey();
 
+    /**
+     * Gets value.
+     *
+     * @return the value
+     */
     String getValue();
 }
