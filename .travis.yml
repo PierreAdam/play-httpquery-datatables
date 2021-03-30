@@ -5,11 +5,7 @@ cache:
   - $HOME/.m2
 
 jdk:
-  - openjdk8
-
-install:
-  - mvn clean
-  - mvn compile
+  - openjdk11
 
 script:
   - mvn package
